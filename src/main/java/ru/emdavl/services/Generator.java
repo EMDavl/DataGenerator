@@ -2,6 +2,11 @@ package ru.emdavl.services;
 
 import java.sql.*;
 
+
+/**
+ * Перед тем как запускать программу в конструкторе вставьте ссылку на свой дата сурс, логин и пароль от БД.
+ * Вроде перед заполнением все таблицы должны быть пустые, но можете попробовать и не с пустыми должно тоже работать
+ */
 public class Generator {
 
     private Connection connection;
@@ -18,7 +23,7 @@ public class Generator {
 
     public static void main(String[] args) {
         Generator generator = new Generator();
-//        generator.createDepartments();
+        generator.createDepartments();
         int numOfDepartments = generator.getNumOfDepartments();
         int numOfEmployees = generator.getNumOfEmployees();
         generator.createEmployees(numOfDepartments, numOfEmployees);
@@ -88,6 +93,8 @@ public class Generator {
             throw new IllegalArgumentException(e);
         }
     }
+
+
 
     public Generator() {
         try {
